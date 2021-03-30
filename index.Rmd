@@ -1,5 +1,5 @@
 ---
-author: "未命名 B01201001 一般系"
+author: "黃鈺哲 B09401073 醫學系"
 title: "HW 5: Data Transformation with dplyr"
 date: |
   | 2021-03-25
@@ -30,8 +30,9 @@ hint: 可以參考 `readr::read_delim()` 或是在 RStudio `import Dataset` 的�
 
 ```{r import-data, message=FALSE}
 # write your code here
-
-
+library(readr)
+titanic <- read_delim("~/Desktop/hw5/titanic.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+titanic
 # Do Not modify the code below
 head(titanic)
 # should print out:
@@ -64,7 +65,9 @@ head(titanic)
 ```{r summarise1, message=FALSE}
 # Write your code here
 library(dplyr)
-
+titanic
+titanic %>%
+  group_by(Sex, Pclass)
 
 # Should print out:
 #> # A tibble: 6 x 3
